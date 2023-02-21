@@ -5,8 +5,14 @@ import {
     InputLandingStyle, 
     LabelLandingStyle 
 } from '../components/style/generalStyle'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 const Landing = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    
+
 
     const handleSubmit = e => {
         e.preventDefault()
