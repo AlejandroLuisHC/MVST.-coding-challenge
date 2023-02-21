@@ -1,23 +1,22 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
 import { 
-    FooterStyle, 
-    HeaderStyle, 
     MainStyle, 
     Wrapper 
 } from '../components/style/generalStyle'
+import Header from '../components/general_components/Header';
+import Footer from '../components/general_components/Footer';
 
 const Layout = () => {
     return (
         <Wrapper>
-            <HeaderStyle>
-                This is my header
-            </HeaderStyle>
+            <Header />
+
             <MainStyle>
-                This is my main
+                <Outlet />
             </MainStyle>
-            <FooterStyle>
-                This is my footer
-            </FooterStyle>
+            
+            <Footer />
         </Wrapper>
     )
 }

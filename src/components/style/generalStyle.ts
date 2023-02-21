@@ -75,3 +75,59 @@ export const MainStyle = styled.main`
     font-size: 1.5rem;
     font-weight: bold;
 `
+export const FormLandingStyle = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: ${color.black};
+    color: ${color.white};
+    font-size: 1.5rem;
+    font-weight: bold;
+`
+export const LabelLandingStyle = styled.label`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: ${color.black};
+    color: ${color.white};
+    font-size: 1.5rem;
+    font-weight: bold;
+`
+export const InputLandingStyle = styled.input`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 50px;
+    padding: 0 10px;
+    background-color: ${color.black};
+    color: ${color.white};
+    font-size: 1.5rem;
+    font-weight: bold;
+`
+export const ButtonLandingStyle = styled.button`
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 50px;
+    background-color: ${color.black};
+    color: ${color.white};
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid ${color.white};
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: ${color.white};
+        color: ${color.black};
+    }
+`
