@@ -8,15 +8,16 @@ interface GitHubUser {
 async function searchUser(userName: string): Promise<GitHubUser | false> {
     const response = await fetch(`https://api.github.com/users/${userName}`, {
         headers: {
-            Authorization: `Bearer ${import.meta.env.PERSONAL_ACCESS_TOKEN}`,
+            Authorization: `Bearer ${import.meta.env.VITE_API_GITHUB_TOKEN}`,
         }
     });
-
+    console.log(import.meta.env.VITE_API_GITHUB_TOKEN);
+    
     if (response.status === 200) {
         const userData = await response.json();
         return {
-            login: userData.login,
             id: userData.id,
+            login: userData.login,
             avatar_url: userData.avatar_url,
             html_url: userData.html_url,
         };

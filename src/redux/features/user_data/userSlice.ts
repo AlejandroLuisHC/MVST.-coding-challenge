@@ -1,15 +1,21 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
+type userDataType = {
+    id: number;
+    login: string;
+    avatar_url: string;
+    html_url: string;
+}
 interface UserState {
-    name: string | boolean;
+    userData: userDataType | boolean;
 }
 
 const storedUser = sessionStorage.getItem('user');
 
 const initialState: UserState =
-   storedUser
-        ? { name: JSON.parse(storedUser) }
-        : { name: false };
+    storedUser
+        ? { userData: JSON.parse(storedUser) }
+        : { userData: false };
 
 export const userSlice = createSlice({
     name: 'userData',
@@ -17,11 +23,11 @@ export const userSlice = createSlice({
     reducers: {
         RESTART: (state) => {
             sessionStorage.removeItem('user');
-            state.name = false
+            state.userData = false
         },
-        UPDATE: (state, action: PayloadAction<string>) => {
+        UPDATE: (state, action: PayloadAction<userDataType>) => {
             sessionStorage.setItem('user', JSON.stringify(action.payload));
-            state.name = action.payload;
+            state.userData = action.payload;
         }
     },
 });

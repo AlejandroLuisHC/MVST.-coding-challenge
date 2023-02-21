@@ -4,6 +4,7 @@ import GeneralProvider from '../helper/GeneralProvider'
 
 const Layout = lazy(() => import('./Layout'))
 const Landing = lazy(() => import('../pages/Landing'))
+const Dashboard = lazy(() => import('../pages/Dashboard'))
 
 const Router = () => {
     return (
@@ -13,7 +14,8 @@ const Router = () => {
                     <Routes>
                         <Route path="/" element={<Layout />}>
                             <Route index element={<Landing />} />
-
+                            <Route path="/:user" element={<Dashboard />} />
+                            <Route path="*" element={<div>404</div>} />
                         </Route>
                     </Routes>
                 </Suspense>
