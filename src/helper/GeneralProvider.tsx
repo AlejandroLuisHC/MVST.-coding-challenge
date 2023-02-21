@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import StoreProvider from '../redux/provider/StoreProvider';
+import QueryProvider from './QueryProvider';
 
 interface StoreProviderProps {
     children: ReactNode;
@@ -7,9 +8,11 @@ interface StoreProviderProps {
 
 const GeneralProvider: FC<StoreProviderProps> = ({ children }) => {
     return (
-        <StoreProvider>
-            {children}
-        </StoreProvider>
+        <QueryProvider>
+            <StoreProvider>
+                {children}
+            </StoreProvider>
+        </QueryProvider>
     )
 }
 
