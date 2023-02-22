@@ -35,8 +35,8 @@ npm run dev
 ```
 
 ## Built with 🛠️
-- [ViteJS](https://vitejs.dev/)
-- [ReactTS](https://es.reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [React](https://es.reactjs.org/)
   - useState()
   - useEffect()
   - memo() 
