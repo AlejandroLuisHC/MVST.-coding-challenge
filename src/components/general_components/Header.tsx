@@ -21,12 +21,6 @@ import { BsSearch } from '@react-icons/all-files/bs/BsSearch'
 interface IregisterData {
     user: string;
 }
-type userDataType = {
-    id: number;
-    login: string;
-    avatar_url: string;
-    html_url: string;
-}
 
 const Header = () => {
     const navigate = useNavigate()

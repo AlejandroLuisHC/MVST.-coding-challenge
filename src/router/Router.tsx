@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import GeneralProvider from '../helper/GeneralProvider'
 import RedirectRoutes from './RedirectRoutes'
 
+// Lazy import components
 const Layout = lazy(() => import('./Layout'))
 const Landing = lazy(() => import('../pages/Landing'))
 const Dashboard = lazy(() => import('../pages/Dashboard'))

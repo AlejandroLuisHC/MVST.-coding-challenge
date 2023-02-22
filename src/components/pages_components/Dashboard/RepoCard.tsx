@@ -11,12 +11,20 @@ import {
 import { BsCodeSlash } from '@react-icons/all-files/bs/BsCodeSlash';
 
 interface GitHubRepo {
-    id: number;
+    id: string;
     name: string;
     description: string;
-    html_url: string;
-    language: string;
-    topics: string[];
+    url: string;
+    primaryLanguage: {
+        name: string;
+    };
+    repositoryTopics: {
+        nodes: {
+            topic: {
+                name: string;
+            };
+        }[];
+    };
 }
 
 interface StoreProviderProps {
@@ -25,19 +33,19 @@ interface StoreProviderProps {
 
 const RepoCard: FC<StoreProviderProps> = ({ repo }) => {
     return (
-        <LinkRepoCard to={repo.html_url}>
+        <LinkRepoCard to={repo.url}>
             <H3RepoName>{repo.name}</H3RepoName>
             <PRepoDescription>{repo.description}</PRepoDescription>
             <DivFlexRepo>
                 <DivLang>
-                    <BsCodeSlash />{repo.language ?? 'Unknown'}
+                    <BsCodeSlash />{repo.primaryLanguage.name ?? 'Unknown'}
                 </DivLang>               
                 <DivTopics>
                     { 
-                        repo.topics.length > 0 &&
-                        repo.topics.map((topic, index) => (
+                        repo.repositoryTopics.nodes.length > 0 &&
+                        repo.repositoryTopics.nodes.map((node, index) => (
                             <SpanTopic key={index}>
-                                {topic}
+                                {node.topic.name}
                             </SpanTopic>
                         ))
                     }

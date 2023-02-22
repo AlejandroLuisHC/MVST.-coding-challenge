@@ -2,12 +2,13 @@ import styled, { createGlobalStyle } from "styled-components";
 import { color, device } from "./utils/styleConstants";
 import { Link } from "react-router-dom";
 
+// Global Style
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'roboto', sans-serif;
     }
     body {
         height: 100vh;
@@ -35,6 +36,8 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 `
+
+// Landing Page Style
 export const Wrapper = styled.div`
     display: grid;
     grid-template: 80px 1fr 50px / 1fr;
@@ -180,7 +183,6 @@ export const InputLandingStyle = styled.input`
     background-color: ${color.black};
     color: ${color.whiteFade};
     font-size: 1.5rem;
-    font-weight: bold;
 
     @media ${device.mobile} {
         width: 100%;
@@ -192,7 +194,7 @@ export const InputHeader = styled(InputLandingStyle)`
 
     @media ${device.mobile} {
         width: 100%;
-        font-size: 1.1rem;
+        font-size: .9rem;
     }
 `
 export const ButtonLandingStyle = styled.button`

@@ -9,7 +9,6 @@ import {
     DivFlex,
     FormSearchRepo,
     H1UserName,
-    H2Profile,
     H2RepoList,
     ImgUserAvatar,
     InputSearchRepo,
@@ -23,29 +22,37 @@ import {
 } from '../components/style/dashboardStyle';
 import RepoCard from '../components/pages_components/Dashboard/RepoCard';
 
-
 interface GitHubRepo {
-    id: number;
+    id: string;
     name: string;
     description: string;
-    html_url: string;
-    language: string;
-    topics: string[];
+    url: string;
+    primaryLanguage: {
+        name: string;
+    };
+    repositoryTopics: {
+        nodes: {
+            topic: {
+                name: string;
+            };
+        }[];
+    };
 }
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    const { user } = useParams();
+    const { userData } = useSelector((state: RootState) => state.userData)
+
     const {
         register,
         handleSubmit,
         watch,
     } = useForm();
-    const { user } = useParams();
-    const queryParams = new URLSearchParams(location.search)
-    const search = queryParams.get('search')
-    const { userData } = useSelector((state: RootState) => state.userData)
 
     // Check if search value is less than 3 characters
+    const queryParams = new URLSearchParams(location.search)
+    const search = queryParams.get('search')
     if (search) {
         const searchValue = watch('search')
         searchValue.length < 3 && navigate({ pathname: `/${user}/` })
@@ -65,14 +72,15 @@ const Dashboard = () => {
                         {
                             typeof userData !== 'boolean' &&
                             <SectionProfile>
-                                <LinkProfileData to={userData.html_url}>
+                                <LinkProfileData to={userData.url}>
                                     <H1UserName>{userData.login}</H1UserName>
-                                    <ImgUserAvatar src={userData.avatar_url} alt={userData.login} />
+                                    <ImgUserAvatar src={userData.avatarUrl} alt={userData.login} />
                                     <DivFlex>
                                         <PProfileData>Company: <SpanBold>{userData.company ?? 'Not provided'}</SpanBold></PProfileData>
                                         <PProfileData>Location: <SpanBold>{userData.location ?? 'Not provided'}</SpanBold></PProfileData>
-                                        <PProfileData>Followers: <SpanBold>{userData.followers}</SpanBold></PProfileData>
-                                        <PProfileData>Public repos: <SpanBold>{userData.public_repos}</SpanBold></PProfileData>
+                                        <PProfileData>Followers: <SpanBold>{userData.followers.totalCount}</SpanBold></PProfileData>
+                                        <PProfileData>Public repos: <SpanBold>{userData.publicRepositories.totalCount}</SpanBold></PProfileData>
+                                        <PProfileData>Private repos: <SpanBold>{userData.privateRepositories.totalCount}</SpanBold></PProfileData>
                                     </DivFlex>
                                 </LinkProfileData>
                             </SectionProfile>
@@ -91,7 +99,7 @@ const Dashboard = () => {
                             }>
                                 <InputSearchRepo
                                     type="text"
-                                    placeholder="Search a repository..."
+                                    placeholder="Search repository by name..."
                                     {...register("search", {
                                         required: true,
                                         minLength: 3

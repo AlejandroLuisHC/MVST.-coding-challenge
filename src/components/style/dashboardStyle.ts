@@ -77,12 +77,37 @@ export const LinkProfileData = styled(Link)`
     height: 100%;
     gap: 5px;
     color: ${color.white};
-    padding: 180px 15px 10px;
+    padding: 200px 15px 10px;
     text-decoration: none;
     border-radius: 10px;
     border: 1px solid ${color.white};
     transition: 300ms;
     Position: relative;
+    overflow: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        cursor: pointer;
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: ${color.whiteFade};
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        background: ${color.blue};
+    }
+    &::-webkit-scrollbar-thumb:hover{F
+        background: ${color.blackFade};
+    }
+    &::-webkit-scrollbar-thumb:active{
+        background: #484848;
+    }
+
+    @media ${device.mobile} {
+        height: auto;
+    }
 
     &:hover {
         transform: scale(1.05);
@@ -107,8 +132,8 @@ export const ImgUserAvatar = styled.img`
     left: 50%;
     transform: translateX(-50%);
     border-radius: 10px;
-    width: 150px;
-    height: 150px;
+    width: 190px;
+    height: 190px;
     object-fit: cover;
 
     @media ${device.mobile} {
@@ -178,7 +203,6 @@ export const InputSearchRepo = styled.input`
     background-color: ${color.black};
     color: ${color.whiteFade};
     font-size: 1.5rem;
-    font-weight: bold;
 
     @media ${device.mobile} {
         width: 100%;
