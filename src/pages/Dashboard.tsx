@@ -89,14 +89,16 @@ const Dashboard = () => {
                             <H2RepoList>
                                 Repositories:
                             </H2RepoList>
-                            <FormSearchRepo onChange={
-                                handleSubmit(data => {
-                                    if (data.search.lenght < 4) {
-                                        navigate({ pathname: `/${user}/` })
-                                    }
-                                    navigate({ pathname: `/${user}/`, search: `?${createSearchParams(data)}` })
-                                })
-                            }>
+                            <FormSearchRepo onSubmit={e => e.preventDefault()}
+                                onChange={ 
+                                    handleSubmit(data => {
+                                        if (data.search.lenght < 4) {
+                                            navigate({ pathname: `/${user}/` })
+                                        }
+                                        navigate({ pathname: `/${user}/`, search: `?${createSearchParams(data)}` })
+                                    })
+                                }
+                            >
                                 <InputSearchRepo
                                     type="text"
                                     placeholder="Search repository by name..."

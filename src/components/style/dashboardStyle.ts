@@ -180,14 +180,11 @@ export const H2Profile = styled(H2RepoList)`
 
 // Repo Section
 export const SectionRepoList = styled(SectionProfile)`
-
 `
 export const FormSearchRepo = styled.form`
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 100%;
     color: ${color.white};
     margin-bottom: 30px;
 `
