@@ -49,12 +49,11 @@ async function searchUser(userName: string): Promise<GitHubUser | false> {
     });
 
     if (response.status === 200) {
-        const { data }  = await response.json();
-        console.log(data);
-        
+        const { data } = await response.json();
+
         if (data.user) {
             const { user } = data;
-            
+
             return {
                 login: user.login,
                 id: user.id,

@@ -8,7 +8,7 @@ export const color: Record<string, string> = {
     whiteFade: '#F0F8EA88',
     black: '#001011',
     blackFade: '#00101188',
-} 
+}
 export const device: Record<string, string> = {
     desktop: `(min-width: 768px)`,
     mobile: `(max-width: 768px)`,

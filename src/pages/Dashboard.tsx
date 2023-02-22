@@ -73,8 +73,8 @@ const Dashboard = () => {
                             typeof userData !== 'boolean' &&
                             <SectionProfile>
                                 <LinkProfileData to={userData.url}>
-                                    <H1UserName>{userData.login}</H1UserName>
                                     <ImgUserAvatar src={userData.avatarUrl} alt={userData.login} />
+                                    <H1UserName>{userData.login}</H1UserName>
                                     <DivFlex>
                                         <PProfileData>Company: <SpanBold>{userData.company ?? 'Not provided'}</SpanBold></PProfileData>
                                         <PProfileData>Location: <SpanBold>{userData.location ?? 'Not provided'}</SpanBold></PProfileData>
@@ -90,7 +90,7 @@ const Dashboard = () => {
                                 Repositories:
                             </H2RepoList>
                             <FormSearchRepo onSubmit={e => e.preventDefault()}
-                                onChange={ 
+                                onChange={
                                     handleSubmit(data => {
                                         if (data.search.lenght < 4) {
                                             navigate({ pathname: `/${user}/` })
@@ -109,24 +109,24 @@ const Dashboard = () => {
                                 />
                             </FormSearchRepo>
                             <WrapperRepo>
-                            {search
-                                ?
-                                data.filter((repo: GitHubRepo) => repo.name.toLowerCase().includes(search.toLowerCase())).map((repo: GitHubRepo) => {
-                                    return (
-                                        <RepoCard key={repo.id}
-                                            repo={repo}
-                                        />
-                                    )
-                                })
-                                :
-                                data.map((repo: GitHubRepo) => {
-                                    return (
-                                        <RepoCard key={repo.id}
-                                            repo={repo}
-                                        />
-                                    )
-                                })
-                            }
+                                {search
+                                    ?
+                                    data.filter((repo: GitHubRepo) => repo.name.toLowerCase().includes(search.toLowerCase())).map((repo: GitHubRepo) => {
+                                        return (
+                                            <RepoCard key={repo.id}
+                                                repo={repo}
+                                            />
+                                        )
+                                    })
+                                    :
+                                    data.map((repo: GitHubRepo) => {
+                                        return (
+                                            <RepoCard key={repo.id}
+                                                repo={repo}
+                                            />
+                                        )
+                                    })
+                                }
                             </WrapperRepo>
                         </SectionRepoList>
                     </WrapperDashboard>

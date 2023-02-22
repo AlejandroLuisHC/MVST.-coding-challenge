@@ -24,11 +24,9 @@ const Landing = () => {
     } = useForm()
 
     // Function to search a user, redirect to dashboard, and update the store
-    const setUser = async (data:IregisterData) => {
+    const setUser = async (data: IregisterData) => {
         const res = await searchUser(data.user)
         if (res) {
-            console.log(">>>>>>", res);
-            
             dispatch(UPDATE(res))
             navigate(`/${res.login}`)
         } else {

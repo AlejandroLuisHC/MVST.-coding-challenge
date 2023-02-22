@@ -7,12 +7,12 @@ interface StoreProviderProps {
     children: ReactElement;
 }
 
-const RedirectRoutes: FC<StoreProviderProps> = ({ children }): JSX.Element => {
+const UserRoute: FC<StoreProviderProps> = ({ children }): JSX.Element => {
     const { userData } = useSelector((state: RootState) => state.userData)
 
-    return typeof userData !== 'boolean' 
-        ? <Navigate to={`/${userData.login}`} /> 
-        : children  
+    return typeof userData === 'boolean'
+        ? <Navigate to={`/`} />
+        : children
 }
 
-export default RedirectRoutes
+export default UserRoute

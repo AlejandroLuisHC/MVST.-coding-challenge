@@ -72,12 +72,12 @@ export const LinkProfileData = styled(Link)`
     background-color: ${color.black};
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: space-evenly;
+    align-items: center;
     width: 100%;
     height: 100%;
     gap: 5px;
     color: ${color.white};
-    padding: 200px 15px 10px;
+    padding: 20px 15px;
     text-decoration: none;
     border-radius: 10px;
     border: 1px solid ${color.white};
@@ -127,19 +127,18 @@ export const LinkProfileData = styled(Link)`
     }
 `
 export const ImgUserAvatar = styled.img`
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
     border-radius: 10px;
-    width: 190px;
-    height: 190px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
 
     @media ${device.mobile} {
-        width: 60px;
-        height: 60px;
-        left: 50px;
+        position: absolute;
+        top: 35px;
+        left: 20px;
+        object-fit: cover;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
     }
 `
