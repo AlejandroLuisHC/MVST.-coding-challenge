@@ -9,15 +9,12 @@ import {
     FormSearchRepo,
     H1UserName,
     H2RepoList,
-    H3RepoName,
     ImgUserAvatar,
     InputSearchRepo,
-    PRepoDescription,
     SectionRepoList,
     WrapperDashboard,
     WrapperProfileData,
     WrapperRepo,
-    WrapperRepoCard,
 } from '../components/style/dashboardStyle';
 import RepoCard from '../components/pages_components/Dashboard/RepoCard';
 
