@@ -49,7 +49,7 @@ export const SectionProfile = styled.section`
     }
 
     @media ${device.mobile} {
-        height: calc(100vh - 250px);
+        height: auto;
     }
 `
 export const H1UserName = styled.h1`
@@ -92,8 +92,10 @@ export const LinkProfileData = styled(Link)`
     }
 
     @media ${device.mobile} {
-        padding: 20px 15px 10px;
-
+        padding: 45px 15px 10px;
+        justify-content: flex-start;
+        gap: 25px;
+        height: auto;
         &:active {
             transform: scale(1.05);
         }
@@ -101,7 +103,7 @@ export const LinkProfileData = styled(Link)`
 `
 export const ImgUserAvatar = styled.img`
     position: absolute;
-    top: 20px;
+    top: 25px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 10px;
@@ -112,7 +114,7 @@ export const ImgUserAvatar = styled.img`
     @media ${device.mobile} {
         width: 60px;
         height: 60px;
-        left: 45px;
+        left: 50px;
         border-radius: 50%;
     }
 `
