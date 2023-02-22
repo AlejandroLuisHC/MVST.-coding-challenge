@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import {
     ButtonLandingStyle,
     FormLandingStyle,
@@ -49,4 +49,4 @@ const Landing = () => {
     )
 }
 
-export default Landing
+export default memo(Landing)

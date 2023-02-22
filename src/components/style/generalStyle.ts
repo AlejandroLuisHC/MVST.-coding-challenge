@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 export const Wrapper = styled.div`
     display: grid;
-    grid-template: 50px 1fr 50px / 1fr 3fr 1fr;
+    grid-template: 50px 1fr 50px / 1fr 4fr 1fr;
     height: 100vh;
     width: 100vw;
 `
