@@ -3,6 +3,8 @@ interface GitHubRepo {
     name: string;
     description: string;
     html_url: string;
+    language: string;
+    topics: string[];
 }
 
 async function searchRepos(userName: string): Promise<GitHubRepo[]> {
@@ -20,6 +22,8 @@ async function searchRepos(userName: string): Promise<GitHubRepo[]> {
                 name: repo.name,
                 description: repo.description,
                 html_url: repo.html_url,
+                language: repo.language,
+                topics: repo.topics,
             };
         });
     } else {

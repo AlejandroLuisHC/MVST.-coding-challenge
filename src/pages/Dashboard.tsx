@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import {
+    DivFlex,
     FormSearchRepo,
     H1UserName,
     H2Profile,
@@ -13,17 +14,23 @@ import {
     ImgUserAvatar,
     InputSearchRepo,
     LinkProfileData,
+    PProfileData,
+    SectionProfile,
     SectionRepoList,
+    SpanBold,
     WrapperDashboard,
     WrapperRepo,
 } from '../components/style/dashboardStyle';
 import RepoCard from '../components/pages_components/Dashboard/RepoCard';
+
 
 interface GitHubRepo {
     id: number;
     name: string;
     description: string;
     html_url: string;
+    language: string;
+    topics: string[];
 }
 
 const Dashboard = () => {
@@ -57,17 +64,22 @@ const Dashboard = () => {
                     <WrapperDashboard>
                         {
                             typeof userData !== 'boolean' &&
-                            <>
-                                <H2Profile>Profile:</H2Profile>
+                            <SectionProfile>
                                 <LinkProfileData to={userData.html_url}>
                                     <H1UserName>{userData.login}</H1UserName>
                                     <ImgUserAvatar src={userData.avatar_url} alt={userData.login} />
+                                    <DivFlex>
+                                        <PProfileData>Company: <SpanBold>{userData.company ?? 'Not provided'}</SpanBold></PProfileData>
+                                        <PProfileData>Location: <SpanBold>{userData.location ?? 'Not provided'}</SpanBold></PProfileData>
+                                        <PProfileData>Followers: <SpanBold>{userData.followers}</SpanBold></PProfileData>
+                                        <PProfileData>Public repos: <SpanBold>{userData.public_repos}</SpanBold></PProfileData>
+                                    </DivFlex>
                                 </LinkProfileData>
-                            </>
+                            </SectionProfile>
                         }
                         <SectionRepoList>
                             <H2RepoList>
-                                {typeof userData !== 'boolean' && userData.login}'s Repositories:
+                                Repositories:
                             </H2RepoList>
                             <FormSearchRepo onChange={
                                 handleSubmit(data => {

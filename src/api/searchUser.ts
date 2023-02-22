@@ -2,7 +2,11 @@ interface GitHubUser {
     login: string;
     id: number;
     avatar_url: string;
+    company: string;
+    location: string;
     html_url: string;
+    followers: number;
+    public_repos: number;
 }
 
 async function searchUser(userName: string): Promise<GitHubUser | false> {
@@ -20,6 +24,10 @@ async function searchUser(userName: string): Promise<GitHubUser | false> {
             login: userData.login,
             avatar_url: userData.avatar_url,
             html_url: userData.html_url,
+            company: userData.company,
+            location: userData.location,
+            followers: userData.followers,
+            public_repos: userData.public_repos,
         };
     } else {
         return false;

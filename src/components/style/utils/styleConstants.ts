@@ -4,6 +4,7 @@ export const color: Record<string, string> = {
     yellow: '#F0F66E',
     blue: '#4392F1',
     white: '#F0F8EA',
+    whiteFadeBg: '#F0F8EA33',
     whiteFade: '#F0F8EA88',
     black: '#001011',
     blackFade: '#00101188',

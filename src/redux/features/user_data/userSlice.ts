@@ -4,8 +4,13 @@ type userDataType = {
     id: number;
     login: string;
     avatar_url: string;
+    company: string;
+    location: string;
     html_url: string;
+    followers: number;
+    public_repos: number;
 }
+
 interface UserState {
     userData: userDataType | boolean;
 }

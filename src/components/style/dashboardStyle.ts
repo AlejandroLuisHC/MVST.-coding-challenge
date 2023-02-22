@@ -1,59 +1,128 @@
 import styled from "styled-components";
-import { color } from "./utils/styleConstants";
+import { color, device } from "./utils/styleConstants";
 import { Link } from "react-router-dom";
 
 export const WrapperDashboard = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 300px 1fr;
     width: 100%;
     height: 100%;
     gap: 20px;
     background-color: ${color.black};
     color: ${color.white};
+    
+    @media ${device.mobile} {
+        grid-template-columns: 1fr;
+    }
+`
+
+// Profile Section
+export const SectionProfile = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: ${color.whiteFadeBg};
+    padding: 30px 20px;
+    width: 100%;
+    height: calc(100vh - 130px);
+    border-radius: 10px;
+    overflow: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        cursor: pointer;
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: ${color.whiteFade};
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        background: ${color.blue};
+    }
+    &::-webkit-scrollbar-thumb:hover{F
+        background: ${color.blackFade};
+    }
+    &::-webkit-scrollbar-thumb:active{
+        background: #484848;
+    }
+
+    @media ${device.mobile} {
+        height: calc(100vh - 250px);
+    }
 `
 export const H1UserName = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem;
+    width: 100%;
+    font-size: 1.9rem;
     color: ${color.white};
     transition: 300ms;
+
+    @media ${device.mobile} {
+        font-size: 1.5rem;
+        margin-left: 35px;
+        color: ${color.blue};
+    }
 `
 export const LinkProfileData = styled(Link)`
     display: flex;
+    background-color: ${color.black};
+    flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
-    width: 70%;
-    height: auto;
+    align-items: space-evenly;
+    width: 100%;
+    height: 100%;
+    gap: 5px;
     color: ${color.white};
-    padding: 10px 20px;
+    padding: 180px 15px 10px;
     text-decoration: none;
     border-radius: 10px;
     border: 1px solid ${color.white};
     transition: 300ms;
+    Position: relative;
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
     &:hover ${H1UserName} {
         color: ${color.blue};
     }
+
+    @media ${device.mobile} {
+        padding: 20px 15px 10px;
+
+        &:active {
+            transform: scale(1.05);
+        }
+    }
 `
 export const ImgUserAvatar = styled.img`
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 10px;
-    width: 55px;
-    height: 55px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
+
+    @media ${device.mobile} {
+        width: 60px;
+        height: 60px;
+        left: 45px;
+        border-radius: 50%;
+    }
 `
-export const SectionRepoList = styled.section`
+export const DivFlex = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 10px;
     align-items: center;
     width: 100%;
-    height: auto;
-    color: ${color.white};
 `
 export const H2RepoList = styled.h2`
     display: flex;
@@ -61,14 +130,30 @@ export const H2RepoList = styled.h2`
     align-items: center;
     font-size: 1.8rem;
     color: ${color.white};
-    margin: 50px 0 50px;
+    width: 100%;
+    font-weight: bold;
+    padding-bottom: 10px;
+`
+export const PProfileData = styled.p`
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    color: ${color.white};
     width: 100%;
     font-weight: lighter;
     padding-bottom: 10px;
-    border-bottom: 1px solid ${color.whiteFade};
 `
+export const SpanBold = styled.span`
+    font-weight: bold;
+    margin-left: 5px;
+`
+
 export const H2Profile = styled(H2RepoList)`
-    margin-top: 30px;
+`
+
+// Repo Section
+export const SectionRepoList = styled(SectionProfile)`
+
 `
 export const FormSearchRepo = styled.form`
     display: flex;
@@ -83,6 +168,7 @@ export const InputSearchRepo = styled.input`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
     width: 75%;
     height: 50px;
     padding: 0 10px;
@@ -91,14 +177,25 @@ export const InputSearchRepo = styled.input`
     color: ${color.whiteFade};
     font-size: 1.5rem;
     font-weight: bold;
+
+    @media ${device.mobile} {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 1.2rem;
+    }
+`
+export const DivFlexRepo = styled(DivFlex)`
 `
 export const WrapperRepo = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 10px 0;
     width: 100%;
     color: ${color.white};
+
+    @media ${device.mobile} {
+        justify-content: flex-start;
+    }
 `
 export const H3RepoName = styled.h3`
     font-size: 1.5rem;
@@ -109,15 +206,45 @@ export const PRepoDescription = styled.p`
     font-size: 1.1rem;
     color: ${color.whiteFade};
 `
+export const DivLang = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${color.blue};
+    font-size: .85rem;
+    width: 100%;
+    height: 100%;
+    gap: 5px;
+`
+export const DivTopics = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    gap: 5px;
+    width: 100%;
+    height: auto;
+` 
+export const SpanTopic = styled.span`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .75rem;
+    color: ${color.blue};
+    background-color: ${color.white};
+    padding: 5px 10px;
+    border-radius: 10px;
+`
 export const LinkRepoCard = styled(Link)`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-decoration: none;
     align-items: center;
+    background-color: ${color.black};
     gap: 20px;
     padding: 20px;
-    width: 350px;
+    width: 320px;
     height: auto;
     color: ${color.white};
     transition: 300ms;
@@ -132,4 +259,14 @@ export const LinkRepoCard = styled(Link)`
     &:hover ${H3RepoName} {
         color: ${color.blue};
     }
+
+    @media ${device.mobile} {
+        width: 100%;
+        margin: 10px 0;
+
+        &:active {
+            transform: scale(1.1);
+        }
+    }
+
 `

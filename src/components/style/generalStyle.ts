@@ -37,9 +37,10 @@ export const GlobalStyle = createGlobalStyle`
 `
 export const Wrapper = styled.div`
     display: grid;
-    grid-template: 80px 1fr 50px / 1fr 5fr 1fr;
+    grid-template: 80px 1fr 50px / 1fr;
     height: 100vh;
     width: 100vw;
+
 `
 export const HeaderStyle = styled.header`
     grid-column: 1 / span 3;
@@ -51,12 +52,20 @@ export const HeaderStyle = styled.header`
     color: ${color.white};
     font-size: 1.5rem;
     font-weight: bold;
+
+    @media ${device.mobile} {
+        gap: 5px;
+    }
 `
 export const NavStyle = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
+
+    @media ${device.mobile} {
+        width: 100%;
+    }
 `
 export const FooterStyle = styled.footer`
     grid-column: 1 / span 3;
@@ -72,6 +81,7 @@ export const MainStyle = styled.main`
     grid-column: 2;
     grid-row: 2;
     display: flex;
+    width: 100vw;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
@@ -89,8 +99,11 @@ export const FormLandingStyle = styled.form`
     height: 100%;
     background-color: ${color.black};
     color: ${color.white};
-    font-size: 1.5rem;
     font-weight: bold;
+
+    @media ${device.mobile} {
+        width: 100%;
+    }
 `
 export const FormHeaderStyle = styled(FormLandingStyle)`
     flex-direction: row;
@@ -102,14 +115,26 @@ export const LabelLandingStyle = styled.label`
     align-items: center;
     gap: 10px;
     width: 100%;
-    height: 100%;
-    background-color: ${color.black};
+    padding: 30px;
+    border-radius: 10px;
+    background-color: ${color.whiteFadeBg};
     color: ${color.white};
     font-size: 2rem;
     font-weight: bold;
+
+    @media ${device.mobile} {
+        padding: 20px;
+        font-size: 1.5rem;
+    }
 `
 export const LabelHeaderStyle = styled(LabelLandingStyle)`
     margin: 0 20px;
+    background-color: ${color.black};
+
+    @media ${device.mobile} {
+        margin: 0;
+        padding: 5px;
+    }
 `
 export const SpanBlue = styled.span`
     color: ${color.blue};
@@ -132,6 +157,16 @@ export const LinkLogo = styled(Link)`
     &:hover ${SpanBlue} {
         color: ${color.white};
     }
+
+    @media ${device.mobile} {
+        font-size: 1.2rem;
+        padding-left: 10px;
+
+        &:active {
+            transform: scale(1.1);
+            color: ${color.blue};
+        }
+    }
 `
 export const InputLandingStyle = styled.input`
     display: flex;
@@ -146,10 +181,19 @@ export const InputLandingStyle = styled.input`
     color: ${color.whiteFade};
     font-size: 1.5rem;
     font-weight: bold;
+
+    @media ${device.mobile} {
+        width: 100%;
+    }
 `
 export const InputHeader = styled(InputLandingStyle)`
     height: 40px;
     width: 100%;
+
+    @media ${device.mobile} {
+        width: 100%;
+        font-size: 1.1rem;
+    }
 `
 export const ButtonLandingStyle = styled.button`
     display: flex; 
@@ -169,6 +213,13 @@ export const ButtonLandingStyle = styled.button`
         background-color: ${color.white};
         color: ${color.black};
     }
+
+    @media ${device.mobile} {
+        width: 100%;
+        &:active {
+            transform: scale(0.9);
+        }
+    }
 `
 export const ButtonHeaderSearch = styled(ButtonLandingStyle)`
     width: 40px;
@@ -176,4 +227,8 @@ export const ButtonHeaderSearch = styled(ButtonLandingStyle)`
     padding: 10px;
     border: 2px solid ${color.white};
     border-radius: 50%;
+
+    @media ${device.mobile} {
+        margin-right: 10px;
+    }
 `
