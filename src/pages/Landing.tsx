@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { UPDATE } from '../redux/features/user_data/userSlice'
 import { searchUser } from '../api'
+import { toast } from 'react-hot-toast'
 interface IregisterData {
     user: string;
 }
@@ -28,7 +29,7 @@ const Landing = () => {
             dispatch(UPDATE(res))
             navigate(`/${res.login}`)
         } else {
-            alert('User not found')
+            toast.error("User not found")
         }
     }
 
@@ -37,10 +38,10 @@ const Landing = () => {
             setUser(data as IregisterData)
         })}>
             <LabelLandingStyle>
-                GitHub user:
+                Search a GitHub user:
                 <InputLandingStyle
                     type="text"
-                    placeholder="Enter a GitHub user"
+                    placeholder="Enter a GitHub user..."
                     {...register('user', { required: true })}
                 />
                 <ButtonLandingStyle type="submit">Submit</ButtonLandingStyle>

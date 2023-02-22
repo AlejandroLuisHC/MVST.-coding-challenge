@@ -8,12 +8,13 @@ import { RootState } from '../redux/store';
 import {
     FormSearchRepo,
     H1UserName,
+    H2Profile,
     H2RepoList,
     ImgUserAvatar,
     InputSearchRepo,
+    LinkProfileData,
     SectionRepoList,
     WrapperDashboard,
-    WrapperProfileData,
     WrapperRepo,
 } from '../components/style/dashboardStyle';
 import RepoCard from '../components/pages_components/Dashboard/RepoCard';
@@ -56,13 +57,18 @@ const Dashboard = () => {
                     <WrapperDashboard>
                         {
                             typeof userData !== 'boolean' &&
-                            <WrapperProfileData>
-                                <H1UserName>{userData.login}</H1UserName>
-                                <ImgUserAvatar src={userData.avatar_url} alt={userData.login} />
-                            </WrapperProfileData>
+                            <>
+                                <H2Profile>Profile:</H2Profile>
+                                <LinkProfileData to={userData.html_url}>
+                                    <H1UserName>{userData.login}</H1UserName>
+                                    <ImgUserAvatar src={userData.avatar_url} alt={userData.login} />
+                                </LinkProfileData>
+                            </>
                         }
                         <SectionRepoList>
-                            <H2RepoList>Repositories</H2RepoList>
+                            <H2RepoList>
+                                {typeof userData !== 'boolean' && userData.login}'s Repositories:
+                            </H2RepoList>
                             <FormSearchRepo onChange={
                                 handleSubmit(data => {
                                     if (data.search.lenght < 4) {
@@ -73,7 +79,7 @@ const Dashboard = () => {
                             }>
                                 <InputSearchRepo
                                     type="text"
-                                    placeholder="Search a repository"
+                                    placeholder="Search a repository..."
                                     {...register("search", {
                                         required: true,
                                         minLength: 3

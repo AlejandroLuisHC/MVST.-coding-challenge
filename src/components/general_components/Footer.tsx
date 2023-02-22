@@ -4,7 +4,9 @@ import { FooterStyle } from '../style/generalStyle'
 const Footer = () => {
     return (
         <FooterStyle>
-            Alejandro L. Herrero Conesa
+            <small>
+                Alejandro L. Herrero Conesa
+            </small>
         </FooterStyle>
     )
 }
