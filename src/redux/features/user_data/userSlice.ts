@@ -1,25 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-interface GitHubUser {
-    login: string;
-    id: string;
-    avatarUrl: string;
-    company: string;
-    location: string;
-    url: string;
-    followers: {
-        totalCount: number;
-    };
-    publicRepositories: {
-        totalCount: number;
-    };
-    privateRepositories: {
-        totalCount: number;
-    };
-}
+import type { IGitHubUser } from '../../../api/interfaces/interfaces';
 
 interface UserState {
-    userData: GitHubUser | boolean;
+    userData: IGitHubUser | boolean;
 }
 
 const storedUser = sessionStorage.getItem('user');
@@ -37,7 +20,7 @@ export const userSlice = createSlice({
             sessionStorage.removeItem('user');
             state.userData = false
         },
-        UPDATE: (state, action: PayloadAction<GitHubUser>) => {
+        UPDATE: (state, action: PayloadAction<IGitHubUser>) => {
             sessionStorage.setItem('user', JSON.stringify(action.payload));
             state.userData = action.payload;
         }

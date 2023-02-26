@@ -1,22 +1,6 @@
-interface GitHubUser {
-    login: string;
-    id: string;
-    avatarUrl: string;
-    company: string;
-    location: string;
-    url: string;
-    followers: {
-        totalCount: number;
-    };
-    publicRepositories: {
-        totalCount: number;
-    };
-    privateRepositories: {
-        totalCount: number;
-    };
-}
+import type { IGitHubUser } from "./interfaces/interfaces";
 
-async function searchUser(userName: string): Promise<GitHubUser | false> {
+async function searchUser(userName: string): Promise<IGitHubUser | false> {
     const query = `
         query {
                 user(login: "${userName}") {
@@ -43,7 +27,7 @@ async function searchUser(userName: string): Promise<GitHubUser | false> {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_API_GITHUB_TOKEN}`,
+            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
         },
         body: JSON.stringify({ query }),
     });

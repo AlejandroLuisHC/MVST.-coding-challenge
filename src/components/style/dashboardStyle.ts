@@ -60,10 +60,10 @@ export const H1UserName = styled.h1`
     font-size: 1.9rem;
     color: ${color.white};
     transition: 300ms;
-
+    
     @media ${device.mobile} {
         font-size: 1.4rem;
-        margin-left: 35px;
+        margin-top: 35px;
         color: ${color.blue};
     }
 `
@@ -128,14 +128,13 @@ export const LinkProfileData = styled(Link)`
 `
 export const ImgUserAvatar = styled.img`
     border-radius: 10px;
-    width: 160px;
-    height: 160px;
+    width: 125px;
+    height: 125px;
     object-fit: cover;
 
     @media ${device.mobile} {
         position: absolute;
-        top: 35px;
-        left: 20px;
+        top: 25px;
         object-fit: cover;
         width: 45px;
         height: 45px;

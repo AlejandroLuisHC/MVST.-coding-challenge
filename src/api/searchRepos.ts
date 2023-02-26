@@ -1,21 +1,8 @@
-interface GitHubRepo {
-    id: string;
-    name: string;
-    description: string;
-    url: string;
-    primaryLanguage: {
-        name: string;
-    };
-    repositoryTopics: {
-        nodes: {
-            topic: {
-                name: string;
-            };
-        }[];
-    };
-}
+import type { IGitHubRepo } from "./interfaces/interfaces";
+import { loadEnv } from 'vite';
 
-async function searchRepos(userName: string): Promise<GitHubRepo[]> {
+
+async function searchRepos(userName: string): Promise<IGitHubRepo[]> {
     const query = `
         query {
             user(login: "${userName}") {
@@ -45,7 +32,7 @@ async function searchRepos(userName: string): Promise<GitHubRepo[]> {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_API_GITHUB_TOKEN}`,
+            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
         },
         body: JSON.stringify({ query }),
     });
