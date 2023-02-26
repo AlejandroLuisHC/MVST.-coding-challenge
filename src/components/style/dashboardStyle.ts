@@ -237,6 +237,7 @@ export const H3RepoName = styled.h3`
 
     @media ${device.mobile} {
         font-size: 1.2rem;
+        color: ${color.blue};
     }
 `
 export const PRepoDescription = styled.p`
@@ -266,7 +267,7 @@ export const DivTopics = styled.div`
     gap: 5px;
     width: 100%;
     height: auto;
-` 
+`
 export const SpanTopic = styled.span`
     display: flex;
     justify-content: center;
@@ -305,8 +306,11 @@ export const LinkRepoCard = styled(Link)`
         width: 100%;
         margin: 10px 0;
 
+        &:hover {
+            transform: scale(1.05);
+        }
         &:active {
-            transform: scale(1.1);
+            transform: scale(1..05);
         }
     }
 

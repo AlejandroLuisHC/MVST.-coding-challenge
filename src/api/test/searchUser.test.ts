@@ -26,13 +26,6 @@ describe('searchUser function to fetch user from GitHub', () => {
                 },
             };
 
-            global.fetch = jest.fn().mockImplementation(() =>
-                Promise.resolve({
-                    json: () => Promise.resolve(mockUser),
-                    status: 200,
-                })
-            );
-
             const userName = 'octocat';
             const user: false | IGitHubUser = await searchUser(userName);
             if (user){
@@ -40,6 +33,9 @@ describe('searchUser function to fetch user from GitHub', () => {
                 expect(user?.login).toBe(userName);
                 expect(user?.id).toBe(mockUser.data.user.id);
                 expect(user?.avatarUrl).toBe(mockUser.data.user.avatarUrl);
+                expect(user?.company).toBe(mockUser.data.user.company);
+                expect(user?.location).toBe(mockUser.data.user.location);
+                expect(user?.url).toBe(mockUser.data.user.url);
                 expect(user?.followers.totalCount).toBe(
                     mockUser.data.user.followers.totalCount
                 );
