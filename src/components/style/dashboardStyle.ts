@@ -62,7 +62,7 @@ export const H1UserName = styled.h1`
     transition: 300ms;
 
     @media ${device.mobile} {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin-left: 35px;
         color: ${color.blue};
     }
@@ -159,6 +159,10 @@ export const H2RepoList = styled.h2`
     width: 100%;
     font-weight: bold;
     padding-bottom: 10px;
+
+    @media ${device.mobile} {
+        font-size: 1.4rem;
+    }
 `
 export const PProfileData = styled.p`
     display: flex;
@@ -168,6 +172,14 @@ export const PProfileData = styled.p`
     width: 100%;
     font-weight: lighter;
     padding-bottom: 10px;
+    
+    @media ${device.mobile} {
+        font-size: 1.1rem;
+    }
+`
+export const PProfileDataColumn = styled(PProfileData)`
+    flex-direction: column;
+    align-items: flex-start;
 `
 export const SpanBold = styled.span`
     font-weight: bold;
@@ -223,10 +235,18 @@ export const H3RepoName = styled.h3`
     font-size: 1.5rem;
     color: ${color.white};
     transition: 300ms;
+
+    @media ${device.mobile} {
+        font-size: 1.2rem;
+    }
 `
 export const PRepoDescription = styled.p`
     font-size: 1.1rem;
     color: ${color.whiteFade};
+
+    @media ${device.mobile} {
+        font-size: 1rem;
+    }
 `
 export const DivLang = styled.div`
     display: flex;

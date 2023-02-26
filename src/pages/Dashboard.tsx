@@ -14,6 +14,7 @@ import {
     InputSearchRepo,
     LinkProfileData,
     PProfileData,
+    PProfileDataColumn,
     SectionProfile,
     SectionRepoList,
     SpanBold,
@@ -76,8 +77,8 @@ const Dashboard = () => {
                                     <ImgUserAvatar src={userData.avatarUrl} alt={userData.login} />
                                     <H1UserName>{userData.login}</H1UserName>
                                     <DivFlex>
-                                        <PProfileData>Company: <SpanBold>{userData.company ?? 'Not provided'}</SpanBold></PProfileData>
-                                        <PProfileData>Location: <SpanBold>{userData.location ?? 'Not provided'}</SpanBold></PProfileData>
+                                        <PProfileDataColumn>Company: <SpanBold>{userData.company ?? 'Not provided'}</SpanBold></PProfileDataColumn>
+                                        <PProfileDataColumn>Location: <SpanBold>{userData.location ?? 'Not provided'}</SpanBold></PProfileDataColumn>
                                         <PProfileData>Followers: <SpanBold>{userData.followers.totalCount}</SpanBold></PProfileData>
                                         <PProfileData>Public repos: <SpanBold>{userData.publicRepositories.totalCount}</SpanBold></PProfileData>
                                         <PProfileData>Private repos: <SpanBold>{userData.privateRepositories.totalCount}</SpanBold></PProfileData>
