@@ -22,6 +22,7 @@ import {
     WrapperRepo,
 } from '../components/style/dashboardStyle';
 import RepoCard from '../components/pages_components/Dashboard/RepoCard';
+import { PulseLoader } from 'react-spinners';
 
 interface GitHubRepo {
     id: string;
@@ -67,7 +68,7 @@ const Dashboard = () => {
         )
 
         return (
-            (status === 'loading') ? <div>Loading...</div> :
+            (status === 'loading') ? <PulseLoader color="#4392F1" /> :
                 (status === 'error') ? <div>Error</div> :
                     <WrapperDashboard>
                         {

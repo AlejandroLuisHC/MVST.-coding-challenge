@@ -57,6 +57,7 @@ npm run dev
 ## Other libraries ⚙️
 - [react-icons](https://react-icons.github.io/react-icons)
 - [react-hot-toast](https://react-hot-toast.com/)
+- [react-spinners](https://www.davidhu.io/react-spinners/)
 
 ## Future Implementations 🚀
 Here are some possible future implementations for this repository:

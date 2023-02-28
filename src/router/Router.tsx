@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import GeneralProvider from '../helper/GeneralProvider'
 import NoUserRoute from './NoUserRoute'
 import UserRoute from './UserRoute'
+import { PulseLoader } from 'react-spinners'
 
 // Lazy import components
 const Layout = lazy(() => import('./Layout'))
@@ -13,7 +14,7 @@ const Router = () => {
     return (
         <GeneralProvider>
             <BrowserRouter>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<PulseLoader color="#4392F1" />}>
                     <Routes>
                         <Route path="/" element={<Layout />}>
                             <Route index element={<NoUserRoute><Landing /></NoUserRoute>} />

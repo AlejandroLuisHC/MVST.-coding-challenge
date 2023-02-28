@@ -9,18 +9,18 @@ describe('searchUser function to fetch user from GitHub', () => {
                     user: {
                         login: 'octocat',
                         id: 1,
-                        avatarUrl: 'https://avatar.com',
-                        company: 'GitHub',
-                        location: 'San Francisco, CA',
+                        avatarUrl: 'https://github.com/images/error/octocat_happy.gif',
+                        company: '@github',
+                        location: 'San Francisco',
                         url: 'https://github.com/octocat',
                         followers: {
-                            totalCount: 10,
+                            totalCount: 8481,
                         },
                         repositories: {
-                            totalCount: 20,
+                            totalCount: 195,
                         },
                         repositoriesContributedTo: {
-                            totalCount: 30,
+                            totalCount: 195,
                         },
                     },
                 },
