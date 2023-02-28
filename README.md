@@ -73,8 +73,8 @@ Here are some possible future implementations for this repository:
 ## Possible Improvements 💡
 Here are some possible improvements that can be tackled in future updates:
 
-- Improving the performance of the platform by optimizing the code, caching data, and reducing the number of API requests.
-- Making the platform more accessible by improving the user interface, providing alternative text for images, and ensuring that the platform is compatible with assistive technology.
+- Improving the performance of the platform by optimizing the code, caching data, and reducing the number of API requests as well as paginating the data retrieved.
+- Making the platform more accessible by improving the user interface and ensuring that the platform is compatible with assistive technology.
 - Improving the error handling by providing more informative error messages and guiding users on how to fix the errors.
 - Adding tests to ensure the stability and reliability of the platform.
 - Adding multilingual support to make the platform accessible to a wider audience.
