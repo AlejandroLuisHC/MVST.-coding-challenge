@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# MVST. Code challenge
+# GitHub RepoExplorer
 
 The task was to display repositories and allow the users to filter through the repositories by name using a search bar. 
 
