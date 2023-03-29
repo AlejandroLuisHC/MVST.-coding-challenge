@@ -1,4 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CodeFactor](https://www.codefactor.io/repository/github/alejandroluishc/github-repoexplorer/badge)](https://www.codefactor.io/repository/github/alejandroluishc/github-repoexplorer)
 # GitHub RepoExplorer
 
 The task was to display repositories and allow the users to filter through the repositories by name using a search bar. 
